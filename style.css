@@ -1,0 +1,123 @@
+:root {
+  --ink: #10242b;
+  --muted: #5a6f76;
+  --sea: #0b6e75;
+  --sea-dark: #084c52;
+  --sand: #f6f1e7;
+  --paper: #fffdf9;
+  --line: #e4dccd;
+  --accent: #d9822b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+a { color: var(--sea); }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* Thanh đầu trang */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { font-family: "Lora", Georgia, serif; font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
+.brand span { color: var(--sea); }
+.nav nav a { margin-left: 24px; text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; }
+.nav nav a:hover { color: var(--sea); }
+
+/* Phần mở đầu */
+.hero {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(217, 130, 43, 0.16), transparent 42%),
+    linear-gradient(160deg, #0b6e75 0%, #084c52 60%, #06363b 100%);
+  color: #fff;
+  padding: 96px 0 0;
+  overflow: hidden;
+}
+.hero .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 13px; font-weight: 600; color: #bfe6e2; margin: 0 0 16px; }
+.hero h1 { font-family: "Lora", Georgia, serif; font-size: clamp(36px, 6vw, 60px); line-height: 1.15; margin: 0 0 20px; max-width: 16ch; }
+.hero p.lead { font-size: clamp(17px, 2.2vw, 20px); max-width: 60ch; color: #dff1ef; margin: 0 0 32px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; padding: 13px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 16px; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.primary:hover { background: #c17121; }
+.btn.ghost { border: 1.5px solid rgba(255, 255, 255, 0.55); color: #fff; }
+.btn.ghost:hover { background: rgba(255, 255, 255, 0.12); }
+.wave { display: block; width: 100%; height: 70px; margin-top: 72px; }
+
+/* Số liệu nhanh */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: -8px 0 0; padding: 40px 0 8px; }
+.stat { background: var(--sand); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+.stat b { display: block; font-family: "Lora", Georgia, serif; font-size: 32px; color: var(--sea-dark); line-height: 1.2; }
+.stat span { color: var(--muted); font-size: 15px; }
+
+section { padding: 64px 0; }
+section h2 { font-family: "Lora", Georgia, serif; font-size: clamp(26px, 3.6vw, 36px); margin: 0 0 12px; line-height: 1.25; }
+section .sub { color: var(--muted); max-width: 62ch; margin: 0 0 36px; }
+
+.two { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+
+/* Chặng đường */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 22px 24px; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: var(--sea); }
+.timeline time { display: block; font-weight: 700; color: var(--sea-dark); font-size: 15px; }
+
+/* Thẻ việc đang làm */
+.band { background: var(--sand); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+.card .ico { font-size: 30px; line-height: 1; }
+.card h3 { margin: 14px 0 8px; font-size: 20px; }
+.card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+/* Liên hệ */
+.contact { text-align: center; }
+.contact .sub { margin-left: auto; margin-right: auto; }
+.contact .btn.primary { background: var(--sea); }
+.contact .btn.primary:hover { background: var(--sea-dark); }
+.contact .btn.line { border: 1.5px solid var(--sea); color: var(--sea); }
+.contact .btns { justify-content: center; }
+
+footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; text-align: center; }
+
+@media (max-width: 800px) {
+  .two, .cards, .stats { grid-template-columns: 1fr; }
+  .nav nav a { margin-left: 16px; font-size: 14px; }
+  .hero { padding-top: 64px; }
+  section { padding: 48px 0; }
+}
+
+/* Riêng cho blog */
+.blog-head { background: linear-gradient(160deg, #0b6e75 0%, #084c52 70%, #06363b 100%); color: #fff; padding: 64px 0 56px; }
+.blog-head h1 { font-family: "Lora", Georgia, serif; font-size: clamp(30px, 5vw, 46px); margin: 0 0 10px; line-height: 1.2; }
+.blog-head p { margin: 0; color: #dff1ef; max-width: 60ch; }
+.posts { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
+.post-item { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 18px; padding: 26px 28px; margin-bottom: 20px; background: #fff; transition: border-color .15s, transform .15s; }
+.post-item:hover { border-color: var(--sea); transform: translateY(-2px); }
+.post-item time, .article time { color: var(--muted); font-size: 14px; }
+.post-item h2 { font-family: "Lora", Georgia, serif; font-size: 24px; margin: 6px 0 8px; line-height: 1.3; color: var(--ink); }
+.post-item p { margin: 0; color: var(--muted); }
+.post-item .more { display: inline-block; margin-top: 12px; color: var(--sea); font-weight: 600; font-size: 15px; }
+.topics { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; padding: 0; list-style: none; }
+.topics li { background: var(--sand); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; color: var(--sea-dark); font-weight: 500; }
+.article { max-width: 720px; margin: 0 auto; padding: 56px 24px 72px; }
+.article h1 { font-family: "Lora", Georgia, serif; font-size: clamp(30px, 5vw, 42px); line-height: 1.2; margin: 8px 0 28px; }
+.article h2 { font-family: "Lora", Georgia, serif; font-size: 26px; margin: 40px 0 10px; }
+.article p, .article li { font-size: 18px; }
+.article .back { display: inline-block; margin-bottom: 20px; text-decoration: none; font-weight: 600; font-size: 15px; }
+.article .sign { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); }
